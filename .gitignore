@@ -9,7 +9,7 @@ npm-debug.log*
 .env
 
 # Database files
-*.sql
+# *.sql
 *.sqlite
 
 # Operating system files

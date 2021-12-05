@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Open Source Adda</title>
+
+    <link rel="stylesheet" href="/css/styles.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+
+</head>
+
+<body>
+
+    <script src="/js/script.js"></script>
+    <script src="/js/srcScript.js"></script>
+
+    <header>
+
+        <div id="menu" class="fas fa-bars"></div>
+
+        <a href="#" class="logo">Open Source Adda</a>
+
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#course">Courses</a></li>
+            </ul>
+        </nav>
+
+        <div>
+            <div id="login" class="fas fa-user-circle"></div>
+            <div id="login-drop-down-menu" class="login-drop-down-menu">
+                <ul>
+                    <li id="open_account_page"><a href="/account">Account</a></li>
+                    <li id="logout"><a href="/logout">Log Out</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+
+    <!--__________-__________-__________-__________-Login Form-__________-__________-__________-__________-->
+
+    <%- include('./partials/loginForm.ejs') %>
+
+    <!--__________-__________-__________-__________-Registration Form-__________-__________-__________-__________-->
+
+    <%- include('./partials/registrationForm.ejs') %>
+
+    <!--__________-__________-__________-__________-Home-__________-__________-__________-__________-->
+
+    <section id="home" class="home">
+
+        <h1>Open Source Adda</h1>
+
+        <p>AWS & DevOps</p>
+
+        <a href="#course"><button class="btn">Get Started</button></a>
+
+    </section>
+
+    <!--__________-__________-__________-__________-Toast-__________-__________-__________-__________-->
+
+    <div id="snackbar">Log In Successful</div>
+
+    <!--__________-__________-__________-__________-About-__________-__________-__________-__________-->
+
+    <section id="about" class="about">
+
+        <div class="content">
+            <h3>Why choose us?</h3>
+            <p>Because it is the best</p>
+            <a href="#"><button class="btn">learn more!</button></a>
+        </div>
+
+    </section>
+
+    <!--__________-__________-__________-__________-Course-__________-__________-__________-__________-->
+
+    <%- include('./partials/course.ejs') %>
+
+    <!--__________-__________-__________-__________-Footer-__________-__________-__________-__________-->
+
+    <div class="footer">
+
+        <div class="box-container">
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="#home">home</a>
+                <a href="#about">about</a>
+                <a href="#course">course</a>
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <p>
+                    <a href="http://maps.google.com?q=12.969907303013272, 77.57870202890885" target="_blank"><i class="fas fa-map-marker-alt"></i> india, india 000000.</a>
+                </p>
+                <p>
+                    <a href="mailto:example@example.com"><i class="fas fa-envelope"></i> example@example.com</a>
+                </p>
+                <p>
+                    <a href="tel:+919191919191"><i class="fas fa-phone"></i> (+91) 000 000 0000</a>
+                </p>
+            </div>
+        </div>
+
+        <h1 class="credit">
+            created by <a href="#">Mr. Adarsh Choutha</a>, courses by <a href="#">Mr. Prudhvi Raj Anupoju</a>, all rights
+            reserved.
+        </h1>
+
+    </div>
+</body>
+
+</html>

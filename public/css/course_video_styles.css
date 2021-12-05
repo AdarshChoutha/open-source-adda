@@ -1,0 +1,266 @@
+#video_container{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 2px #000;
+    position: relative;
+    overflow: hidden;
+}
+
+#video_container video{
+    width: 100%;
+}
+
+.video-controls{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    flex-wrap: wrap;
+    background: rgba(0, 0, 0, 0.3);
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 -8px 16px rgba(0, 0, 0, 0.3);
+    transform: translateY(100%);
+    transition: all .2s;
+}
+
+/* #video_container:hover .video-controls{
+    transform: translateY(0);
+} */
+
+.video-controls.show{
+    transform: translateY(0);
+}
+
+#range-bar-container{
+    height: 4px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: #777777;
+    display: flex;
+}
+
+#range-bar-container:hover{
+    height: 6px;
+    cursor: pointer;
+    transform: translateY(1px);
+}
+
+#range-bar{
+    height: 100%;
+    width: 0;
+    top: 0;
+    left: 0;
+    background: var(--gradient);
+}
+
+#range-bar:hover{
+    cursor: pointer;
+}
+
+#left-controls{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#play-pause-btn{
+    font-size: 20px;
+    color:#0bb6c2aa;
+    padding: 12px;
+}
+
+#play-pause-btn:hover{
+    cursor: pointer;
+    color:#0bc7d4;
+}
+
+#time-div{
+    align-items: center;
+    font-size: 12px;
+    padding: 8px;
+    color: #ffffffaa;
+}
+
+#time-div:hover{
+    color: #fff;
+}
+
+#right-controls{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#sound-btn{
+    align-items: center;
+    font-size: 20px;
+    padding: 12px;
+    color:#0bb6c2aa;
+}
+
+#sound-btn:hover{
+    cursor: pointer;
+    color:#0bc7d4;
+}
+
+#toggle-full-screen{
+    align-items: center;
+    font-size: 20px;
+    padding: 12px;
+    color:#0bb6c2aa;
+}
+
+#toggle-full-screen:hover{
+    cursor: pointer;
+    color:#0bc7d4;
+}
+
+@media (max-width:768px){
+    
+    .video-controls{
+        box-shadow: 0 -8px 10px rgba(0, 0, 0, 0.3);
+        transform: translateY(100%);
+        transition: all .2s;
+    }
+    
+    #video_container:hover .video-controls{
+        transform: translateY(0);
+    }
+    
+    #play-pause-btn{
+        font-size: 18px;
+        padding: 10px;
+    }
+    
+    #time-div{
+        font-size: 10px;
+        padding: 8px;
+    }
+    
+    #sound-btn{
+        font-size: 18px;
+        padding: 10px;
+    }
+    
+    #toggle-full-screen{
+        font-size: 18px;
+        padding: 10px;
+    }
+
+}
+
+@media (max-width:460px){
+    
+    .video-controls{
+        box-shadow: 0 -6px 8px rgba(0, 0, 0, 0.3);
+        transform: translateY(100%);
+        transition: all .2s;
+    }
+    
+    #video_container:hover .video-controls{
+        transform: translateY(0);
+    }
+    
+    #play-pause-btn{
+        font-size: 16px;
+        padding: 8px;
+    }
+    
+    #time-div{
+        font-size: 8px;
+        padding: 6px;
+    }
+    
+    #sound-btn{
+        font-size: 16px;
+        padding: 8px;
+    }
+    
+    #toggle-full-screen{
+        font-size: 16px;
+        padding: 8px;
+    }
+
+}
+
+@media (max-width:360px){
+    
+    .video-controls{
+        box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.1);
+        transform: translateY(100%);
+        transition: all .2s;
+    }
+    
+    #video_container:hover .video-controls{
+        transform: translateY(0);
+    }
+
+    #range-bar-container{
+        height: 3px;
+    }
+    
+    #range-bar-container:hover{
+        height: 4px;
+        transform: translateY(0.5px);
+    }
+    
+    #play-pause-btn{
+        font-size: 12px;
+        padding: 6px;
+    }
+    
+    #time-div{
+        font-size: 8px;
+        padding: 6px;
+    }
+    
+    #sound-btn{
+        font-size: 10px;
+        padding: 6px;
+    }
+    
+    #toggle-full-screen{
+        font-size: 10px;
+        padding: 6px;
+    }
+
+}
+
+@media (max-width:256px){
+    
+    .video-controls{
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+        transform: translateY(100%);
+        transition: all .2s;
+    }
+    
+    #video_container:hover .video-controls{
+        transform: translateY(0);
+    }
+    
+    #play-pause-btn{
+        font-size: 10px;
+        padding: 6px;
+    }
+    
+    #time-div{
+        font-size: 8px;
+        padding: 6px;
+    }
+    
+    #sound-btn{
+        font-size: 10px;
+        padding: 6px;
+    }
+    
+    #toggle-full-screen{
+        font-size: 10px;
+        padding: 6px;
+    }
+
+}

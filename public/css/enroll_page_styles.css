@@ -1,0 +1,355 @@
+:root{
+    --gradient: linear-gradient(90deg, #0ff1c0, #0bb6c2);
+}
+
+*{
+    font-family: 'Open Sans', sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    border: none; outline: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all linear;
+}
+
+*::selection{
+    background: #0bb6c2;
+    color: #F0F8FF;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+html::-webkit-scrollbar{
+    width: 1.5rem;
+}
+
+html::-webkit-scrollbar-track{
+    background:#333;
+    box-shadow: inset 0 0 5px #444; 
+    border-radius: 0.1rem;
+}
+
+html::-webkit-scrollbar-thumb{
+    background: linear-gradient(45deg, #0ff1c0, #0bb6c2);
+    border-radius: 0.1rem;
+}
+
+html::-webkit-scrollbar-thumb:hover{
+    background: linear-gradient(45deg, #0ff1c0aa, #0bb6c2aa);
+}
+
+section{
+    min-height: 100vh;
+    padding: 1rem 7%;
+    padding-top: 6rem;
+}
+
+.btn{
+    padding: .7rem 3rem;
+    font-size: 2rem;
+    color: #fff;
+    background: var(--gradient);
+    border-radius: 5rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    box-shadow: 0 .1rem .3rem rgba(0,0,0,.3);
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
+
+/*__________-__________-__________-__________-Header-__________-__________-__________-__________*/
+
+header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top:0; left: 0;
+    z-index: 1000;
+    padding: 1.5rem 7%;
+    background:var(--gradient);
+    box-shadow: 0 .1rem .3rem rgba(0,0,0,.3);
+}
+
+header .logo{
+    color: #fff;
+    font-size: 2.5rem;
+}
+
+header i{
+    color:#037c7c;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+/*__________-__________-__________-__________-Enroll Section-__________-__________-__________-__________*/
+
+#course_enroll-container-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+#course_enroll-container{
+    display: flex;
+    flex-direction: row;
+    height: 50vh;
+    width: 100%;
+}
+
+#course_enroll-box{
+    flex:2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#course_enroll-box a{
+    text-decoration: none;
+}
+
+#course_enroll-box h1{
+    margin: 3.6rem;
+    font-size: 4rem;
+    text-decoration: none;
+    color: #023e6ece;
+}
+
+#course_enroll-box p{
+    margin: 2rem;
+    font-size: 2rem;
+}
+
+#course_enroll-box .info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1rem;
+}
+
+#course_enroll-box .info h3{
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2rem;
+}
+
+#course_enroll-box .info i{
+    color: #0bb6c2;
+    margin: 0.6rem;
+}
+
+#img-container{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#img-container img{
+    height: 20rem;
+    width: 100%;
+    object-fit: cover;
+    border: solid .5px #037c7c44;
+}
+
+#img-container .price{
+    top: 16rem; right: 1rem;
+    height: 6rem; width: 12rem;
+    line-height: 6rem;
+    text-align: center;
+    border-radius: 0px 0px 30px 30px;
+    background: var(--gradient);
+    color: #fff;
+    font-size: 2rem;
+}
+
+/*__________-__________-__________-__________-Footer-__________-__________-__________-__________*/
+
+.footer{
+    background: #444;
+}
+
+.footer .box-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer .box-container .box{
+    margin: 1.5rem;
+    text-align: center;
+    flex: 1 1 25rem;
+}
+
+.footer .box-container .box h3{
+    font-size: 2.5rem;
+    color:#2eaa64;
+    padding: 1rem 0;
+}
+
+.footer .box-container .box p{
+    font-size: 1.7rem;
+    color:#fffafa;
+    padding: .7rem 0;
+}
+
+.footer .box-container .box p i{
+    padding-right: .5rem;
+    color: #0cd8ac;
+}
+
+.footer .box-container .box a{
+    font-size: 1.8rem;
+    display: block;
+    padding:.5rem 0;
+    color:#fffafa;
+}
+
+.footer .box-container .box a:hover{
+    text-decoration: underline;
+}
+
+.footer .credit{
+    padding:2rem 1rem;
+    font-size: 2rem;
+    color:#fff;
+    background:#111;
+    text-align: center;
+    font-weight: normal;
+    padding-bottom: 9rem;
+}
+
+.footer .credit a{
+    color:#12f38a
+}
+
+
+
+
+/*__________-__________-__________-__________-Media Queries-__________-__________-__________-__________*/
+
+/*__________-__________-__________-__________-Media Queries-__________-__________-__________-__________*/
+
+
+
+
+@media (max-width:768px){
+
+    html{
+        font-size: 56%;
+    }
+
+    #course_enroll-box h1{
+        margin: 2.4rem;
+    }
+    
+    #course_enroll-box p{
+        margin: 1.6rem;
+    }
+    
+    #course_enroll-box .info{
+        margin: 1rem;
+    }
+    
+    #course_enroll-box .info h3{
+        margin: 2rem;
+    }
+
+    #course_enroll-box .info i{
+        margin: 0.6rem;
+    }
+
+}
+
+@media (max-width:680px){
+
+    #course_enroll-box .info h3{
+        flex-direction: column;
+    }
+
+}
+
+@media (max-width:512px){
+
+    html{
+        font-size: 48%;
+    }
+
+    #course_enroll-box h1{
+        margin: 1.2rem;
+    }
+    
+    #course_enroll-box p{
+        margin: 0.8rem;
+    }
+    
+    #course_enroll-box .info{
+        margin: 0.6rem;
+    }
+    
+    #course_enroll-box .info h3{
+        margin: 0.8rem;
+    }
+
+    #course_enroll-box .info i{
+        margin: 0.4rem;
+    }
+
+}
+
+@media (max-width:360px){
+
+    html{
+        font-size: 36%;
+    }
+
+    #course_enroll-container{
+        flex-direction: column;
+    }
+
+    #course_enroll-box h1{
+        margin: 1.2rem;
+    }
+    
+    #course_enroll-box p{
+        margin: 0.8rem;
+    }
+    
+    #course_enroll-box .info{
+        margin: 0.6rem;
+        flex-direction: column;
+    }
+    
+    #course_enroll-box .info h3{
+        margin: 0.8rem;
+    }
+
+    #course_enroll-box .info i{
+        margin: 0.4rem;
+    }
+
+}
+
+@media (max-width:256px){
+
+    html{
+        font-size: 32%;
+    }
+
+}

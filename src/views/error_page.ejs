@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Open Source Adda | Error</title>
+
+    <link rel="stylesheet" href="/css/error_page_styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+
+</head>
+
+<body>
+
+    <header>
+
+        <a href="#" class="logo">Open Source Adda</a>
+
+        <a href="/"><i class="fas fa-home"></i></a>
+
+    </header>
+
+    <!--__________-__________-__________-__________-Page Status-__________-__________-__________-__________-->
+
+    <section class="pageStatus" id="pageStatus">
+
+        <div id="page_status_container" class="box-container">
+            <p id="page_status" class="box"><%= error_code %></p>
+            <i id="exclamation_icon" class="fas fa-exclamation-triangle"></i>
+        </div>
+
+    </section>
+
+    <!--__________-__________-__________-__________-Footer-__________-__________-__________-__________-->
+
+    <%- include('./partials/footer.ejs') %>
+
+</body>
+
+</html>

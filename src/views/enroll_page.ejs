@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Open Source Adda | Enroll For <%= course_info.course_title %></title>
+
+    <link rel="stylesheet" href="/css/enroll_page_styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+
+</head>
+
+<body>
+
+    <header>
+
+        <a href="#" class="logo">Open Source Adda</a>
+
+        <a href="/"><i class="fas fa-home"></i></a>
+
+    </header>
+
+    <!--__________-__________-__________-__________-Course Enroll Section-__________-__________-__________-__________-->
+
+    <section class="course_enroll" id="course_enroll">
+
+        <div id="course_enroll-container-container" class="box-container-container">
+            <div id="course_enroll-container" class="box-container">
+                <div id="course_enroll-box" class="box">
+                    <a href="#" class="title"><h1><%= course_info.course_title %></h1></a>
+                    <p><%= course_info.course_description %></p>
+                    <div class="info">
+                        <h3>
+                            <i class="far fa-clock"></i>
+                            <%= parseInt(course_info.total_duration / 30) %> daily duration
+                        </h3>
+                        <h3>
+                            <i class="far fa-calendar-alt"></i>
+                            <%= course_info.total_duration %> total duration
+                        </h3>
+                        <h3>
+                            <i class="fas fa-book"></i>
+                            <%= course_info.course_topics.length%> no. of topics
+                        </h3>
+                    </div>
+                </div>
+                <div id="img-container">
+                    <img src="images/course1.jpg" alt="" />
+                    <h3 class="price">₹<%= course_info.course_price %></h3>
+                </div>
+            </div>
+            <input id="course_enroll-submit-btn" type="button" class="btn" value="Enroll Now" onclick="fetch_enroll('<%=course_info.course_title%>')"/>
+        </div>
+
+        <script>
+            function fetch_enroll(course_title) {
+                const options = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                };
+                fetch(`/course/enroll/${course_title}`, options)
+                    .then((res) => {
+                        console.log(res);
+                        if (res.redirected) {
+                            window.location.href = res.url;
+                            console.log(res.url);
+                        }
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            }
+        </script>
+
+    </section>
+
+    <!--__________-__________-__________-__________-Footer-__________-__________-__________-__________-->
+
+    <%- include('./partials/footer.ejs') %>
+
+</body>
+
+</html>

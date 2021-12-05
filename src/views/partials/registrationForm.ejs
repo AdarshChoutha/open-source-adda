@@ -1,0 +1,31 @@
+<div id="registration-form" class="registration-form">
+
+    <form>
+
+        <h3>Register</h3>
+
+        <div class="box-container">
+            <i class="fas fa-envelope"></i>
+            <input id="registration-email" name="registration_email" type="email" class="box" placeholder="email id" required />
+            <div><i id="registration-email-check" class="fas"></i></div>
+        </div>
+
+        <div class="box-container">
+            <i class="fas fa-key"></i>
+            <input id="registration-password" name="registration_password" type="password" class="box" placeholder="password" required />
+            <div><i id="registration-eye" class="fas fa-eye-slash"></i></div>
+        </div>
+
+        <p id="email-strength-check" class="email-strength-check"></p>
+        <p id="password-strength-check" class="password-strength-check">
+            Password should contain atleast 6 characters with atleat 1 of each uppercase, lowercase, numbers & special characters
+        </p>
+        <p>already a customer? <a id="open-login-form">log in</a></p>
+
+        <input id="registration-submit-btn" type="button" class="btn disabled" value="register" disabled="disabled" />
+        
+        <i id="close-registration-form" class="fas fa-times"></i>
+
+    </form>
+
+</div>

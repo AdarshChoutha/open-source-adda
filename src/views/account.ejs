@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Open Source Adda | Accounts</title>
+
+    <link rel="stylesheet" href="/css/account_styles.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+
+</head>
+
+<body>
+    
+    <script src="/js/account_script.js"></script>
+    <script src="/js/account_srcScript.js"></script>
+
+    <header>
+
+        <a href="#" class="logo">Open Source Adda</a>
+
+        <div>
+            <div id="login" class="fas fa-user-circle"></div>
+            <div id="login-drop-down-menu" class="login-drop-down-menu">
+                <ul>
+                    <li id="open_home_page"><a href="/">Home</a></li>
+                    <li id="logout"><a href="/logout">Log Out</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+
+    <!--__________-__________-__________-__________-User-__________-__________-__________-__________-->
+
+    <section class="user_profile" id="user_profile">
+
+        <div id="user_profile_container" class="box-container">
+            <p id="email_container" class="box">Email: <%=email%></p>
+            <p id="changePassword" class="box">Change Password?</p>
+            <a href="#course"><i id="course-eye" class="fas fa-arrow-circle-down"></i></a>
+        </div>
+
+    </section>
+
+    <!--__________-__________-__________-__________-Toast-__________-__________-__________-__________-->
+
+    <div id="snackbar">Log Out Successful</div>
+
+    <!--__________-__________-__________-__________-Course-__________-__________-__________-__________-->
+
+    <%- include('./partials/enrolled_course.ejs') %>
+
+    <!--__________-__________-__________-__________-Footer-__________-__________-__________-__________-->
+
+    <%- include('./partials/footer.ejs') %>
+
+</body>
+
+</html>

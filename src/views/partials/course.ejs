@@ -1,0 +1,78 @@
+<section class="course" id="course">
+
+    <% if (courses.length > 0) { %>
+
+        <h1 class="heading"><%= course_heading %></h1>
+
+        <div class="box-container">
+
+            <!--    Dynamically Rendering Courses    -->
+            <% courses.forEach(course => { %>
+
+                <!--    Calculating Course Rating    -->
+                <% let rating = 0; %>
+                <% courses_rating_data.forEach(course_rating => { %>
+                    <% if (course_rating.course_title == course.course_title) { %>
+                        <% rating = Math.round(course_rating.rating_given * 2) / 2 %>
+                    <% } %>
+                <% }) %>
+
+                <div class="box">
+
+                    <img src="images/course1.jpg" alt="" />
+
+                    <h3 class="price"><%= `₹ ${course.course_price}` %></h3>
+                                            
+                    <div class="content">
+
+                        <!--    Dynamically Displaying Course Rating    -->
+                        <div class="stars">
+                            <% for (let k = 0; k <= rating; k++) { %>
+                                <% if (k != 0) { %>
+                                    <i class="fas fa-star"></i>
+                                <% } %>
+                                <% if ((k + 0.5) == rating) { %>
+                                    <i class="fas fa-star-half-alt"></i>
+                                <% } %>
+                            <% } %>
+                            <% for (let k = 5; k > rating; k--) { %>
+                                <% if ((k - 0.5) != rating) { %>
+                                    <i class="far fa-star"></i>
+                                <% } %>
+                            <% } %>
+                        </div>
+
+                        <a href="/course/<%=course.course_title%>" class="title">
+                            <h1><%= course.course_title %></h1>
+                        </a>
+                        <p><%= course.course_description %></p>
+
+                        <div class="info">
+                            <h3>
+                                <i class="far fa-clock"></i>
+                                <%= parseInt(course.total_duration / 30) %> daily duration
+                            </h3>
+                            <h3>
+                                <i class="far fa-calendar-alt"></i>
+                                <%= course.total_duration %> total duration
+                            </h3>
+                            <h3>
+                                <i class="fas fa-book"></i>
+                                <%= course.course_topics.length %> no. of topics
+                            </h3>
+                        </div>
+
+                    </div>
+                </div>
+
+            <% }); %>
+
+        </div>
+
+        <% } else { %>
+            <h1 class="heading" style="padding-top: 20rem; font-size: 2.8rem">
+                Oops!! No courses are available right now
+            </h1>
+        <% } %>
+
+</section>

@@ -1,0 +1,712 @@
+:root{
+    --gradient: linear-gradient(90deg, #0ff1c0, #0bb6c2);
+}
+
+*{
+    font-family: 'Open Sans', sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    border: none; outline: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all linear;
+}
+
+*::selection{
+    background: #0bb6c2;
+    color: #F0F8FF;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+html::-webkit-scrollbar{
+    width: 1.5rem;
+}
+
+html::-webkit-scrollbar-track{
+    background:#333;
+    box-shadow: inset 0 0 5px #444; 
+    border-radius: 0.1rem;
+}
+
+html::-webkit-scrollbar-thumb{
+    background: linear-gradient(45deg, #0ff1c0, #0bb6c2);
+    border-radius: 0.1rem;
+}
+
+html::-webkit-scrollbar-thumb:hover{
+    background: linear-gradient(45deg, #0ff1c0aa, #0bb6c2aa);
+}
+
+section{
+    min-height: 100vh;
+    padding: 1rem 7%;
+    padding-top: 6rem;
+}
+
+.btn{
+    padding: .7rem 3rem;
+    font-size: 2rem;
+    color: #fff;
+    background: var(--gradient);
+    border-radius: 5rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    box-shadow: 0 .1rem .3rem rgba(0,0,0,.3);
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.btn::before{
+    content: '';
+    position: absolute;
+    top: -1rem; left:-100%;
+    background: #fff9;
+    height: 150%; width: 20%;
+    transform: rotate(25deg);
+    z-index: -1;
+}
+
+.btn:hover::before{
+    transition: .3s linear;
+    left: 120%;
+}
+
+/*__________-__________-__________-__________-Header-__________-__________-__________-__________*/
+
+header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top:0; left: 0;
+    z-index: 1000;
+    padding: 1.5rem 7%;
+    background:var(--gradient);
+    box-shadow: 0 .1rem .3rem rgba(0,0,0,.3);
+}
+
+header .logo{
+    color: #fff;
+    font-size: 2.5rem;
+}
+
+#navbar ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+
+#navbar li{
+    margin: 0 1rem;
+}
+
+#navbar a{
+    font-size: 2rem;
+    color: #fff;
+}
+
+#navbar a.active,
+#navbar a:hover{
+    color: #444;
+}
+
+#login{
+    font-size: 3rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+#login:hover{
+    color: #444;
+}
+
+#login-drop-down-menu{
+    display: none;
+}
+
+#login-drop-down-menu.popup{
+    display: block;
+    position: absolute;
+    margin: 15px 0 0 -38px;
+}
+
+#login-drop-down-menu.popup li{
+    display: block;
+    list-style: none;
+    background: linear-gradient(90deg, #0bc7c7, #0bb6c2);
+    padding: 2rem;
+    border-top: 1px dotted #fff;
+    border-bottom: 1px dotted #fff;
+    font-weight: 600;
+    font-size: 150%;
+}
+
+#login-drop-down-menu.popup a{
+    display: block;
+    color: #fff;
+}
+
+#login-drop-down-menu.popup a:hover{
+    color: #444;
+    cursor: pointer;
+}
+
+#menu{
+    font-size: 3rem;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+}
+
+/*__________-__________-__________-__________-Login & Registration Form-__________-__________-__________-__________*/
+
+#login-form,
+#registration-form{
+    height: 100%; width: 100%;
+    position: fixed;
+    top: 0%; left: 0;
+    z-index: 1000;
+    background: rgba(0,0,0,.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#login-form.popup,
+#registration-form.popup{
+    display: flex;
+}
+
+#login-form form,
+#registration-form form{
+    width: 48rem;
+    background: #fff;
+    margin: 0 2rem;
+    padding: 1rem 3rem;
+    border-radius: 1.8rem 0rem 2rem 1.8rem;
+    box-shadow: 0 .1rem .3rem #333;
+    position: relative;
+}
+
+#login-form h3,
+#registration-form h3{
+    font-size: 3rem;
+    color: #0bb6c2;
+    padding: 1rem 0;
+}
+
+#login-form .box-container,
+#registration-form .box-container{
+    display: flex;
+}
+
+#login-form form .box-container i,
+#registration-form form .box-container i{
+    margin: 2.4rem 0rem 2rem 0rem;
+    font-size: 1.2rem;
+    flex: 1;
+}
+
+#login-form .box,
+#registration-form .box{
+    width: 100%;
+    padding: 1rem 0;
+    margin: 1rem 0;
+    border-bottom: .2rem solid #666;
+    font-size: 1.6rem;
+    color: #333;
+    text-transform: none;
+    flex: 10;
+}
+
+#login-form .box::placeholder,
+#registration-form .box::placeholder{
+    text-transform: capitalize;
+}
+
+#login-form .box:focus,
+#registration-form .box:focus{
+    background: #0ff1c028;
+    border-color: #0bb6c2;
+}
+
+#login-form .box-container:nth-child(3){
+    margin-bottom: 5rem;
+}
+#registration-form .box-container:nth-child(3){
+    margin-bottom: 1rem;
+}
+
+#registration-email-check{
+    margin-left: .6rem;
+    font-size: 1.4rem;
+}
+
+#registration-email-check.fa-check-circle{
+    color: #16914b;
+}
+
+#registration-email-check.fa-times-circle{
+    color: #911616;
+}
+
+#login-form-check-statement{
+    text-transform: none;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #1577c7;
+}
+
+#email-strength-check{
+    text-transform: none;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #dbd82c;
+}
+
+#password-strength-check{
+    text-transform: none;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #ccc;
+}
+
+#password-strength-check.password-strength-poor{
+    text-transform: none;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #c00;
+}
+
+#password-strength-check.password-strength-good{
+    text-transform: none;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #0c0;
+}
+
+#login-form p,
+#registration-form p{
+    font-size: 1.4rem;
+    color: #666;
+    padding: .5rem 0;
+}
+
+#login-form a,
+#registration-form a{
+    color: #0bb6c2;
+    cursor: pointer;
+}
+
+#login-submit-btn,
+#registration-submit-btn{
+    width: 100%;
+    margin: 2rem 0;
+}
+
+#login-submit-btn:hover,
+#registration-submit-btn:hover{
+    background: #666;
+}
+
+#login-submit-btn.disabled,
+#registration-submit-btn.disabled{
+    background: #000;
+}
+
+#close-login-form,
+#close-registration-form{
+    position: absolute;
+    top:1.5rem; right:2rem;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: #999;
+}
+
+#close-login-form:hover,
+#close-registration-form:hover{
+    color: #444;
+}
+
+/*__________-__________-__________-__________-Home-__________-__________-__________-__________*/
+
+#home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    /* background: url() no-repeat;/*__________|__________| Backgroung Image |__________|__________*//*
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; */
+    position: relative;
+    text-align: center;
+}
+
+#home h1{
+    font-size: 6rem;
+    color: #666;
+}
+
+#home p{
+    font-size: 1.9rem;
+    color: #999;
+    padding: 1rem 0;
+    width: 70rem;
+}
+
+/*__________-__________-__________-__________-Toast-__________-__________-__________-__________*/
+
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #d6fff5;
+    color: #1577c7;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+  
+#snackbar.show-toast {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+/*__________-__________-__________-__________-About-__________-__________-__________-__________*/
+
+#about{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#about .content{
+    flex: 1 1 40rem;
+}
+
+#about h3{
+    font-size: 3.5rem;
+    color: #666;
+}
+
+#about p{
+    font-size: 1.5rem;
+    color: #666;
+    padding: 1rem 0;
+}
+
+/*__________-__________-__________-__________-Course-__________-__________-__________-__________*/
+
+.heading{
+    color: #444;
+    padding: 1rem;
+    font-size: 4rem;
+    text-align: center;
+    justify-content: center;
+}
+
+#course .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#course .box{
+    width: 32rem;
+    border: .1rem solid rgba(0,0,0,.3);
+    position: relative;
+    margin: 1.5rem;  
+}
+
+#course img{
+    height: 20rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+#course content{
+    padding: 2rem;
+}
+
+#course .stars i{
+    color: #0bb6c2;
+    font-size: 1.7rem;
+    padding: 1rem .1rem;
+}
+
+#course .title{
+    color: #444;
+    font-size: 2.1rem;
+    text-transform: uppercase;
+}
+
+#course .title h1{
+    text-transform: uppercase;
+}
+
+#course .title:hover{
+    text-decoration: underline;
+}
+
+#course p{
+    padding: 1rem 0;
+    color: #666;
+    font-size: 1.5rem;
+}
+
+#course .info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: .5rem;
+    border-top: .1rem solid rgba(0,0,0,.3);
+}
+
+#course .info h3{
+    font-size: 1.5rem;
+    padding: 1rem;
+    color: #666;
+}
+
+#course .info h3 i{
+    color: #0bb6c2;
+}
+
+#course .price{
+    position: absolute;
+    top: 16rem; right: 1rem;
+    height: 8rem; width: 16rem;
+    line-height: 8rem;
+    text-align: center;
+    border-radius: 10px 30px 0px 30px;
+    background: var(--gradient);
+    color: #fff;
+    font-size: 3rem;
+}
+
+/*__________-__________-__________-__________-Footer-__________-__________-__________-__________*/
+
+.footer{
+    background: #444;
+}
+
+.footer .box-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer .box{
+    margin: 1.5rem;
+    text-align: center;
+    flex: 1 1 25rem;
+}
+
+.footer h3{
+    font-size: 2.5rem;
+    color:#2eaa64;
+    padding: 1rem 0;
+}
+
+.footer p{
+    font-size: 1.7rem;
+    color:#fffafa;
+    padding: .7rem 0;
+}
+
+.footer i{
+    padding-right: .5rem;
+    color: #0cd8ac;
+}
+
+.footer .box a{
+    font-size: 1.8rem;
+    display: block;
+    padding:.5rem 0;
+    color:#fffafa;
+}
+
+.footer .box a:hover{
+    text-decoration: underline;
+}
+
+.footer .credit{
+    padding:2rem 1rem;
+    font-size: 2rem;
+    color:#fff;
+    background:#111;
+    text-align: center;
+    font-weight: normal;
+    padding-bottom: 9rem;
+}
+
+.footer .credit a{
+    color:#12f38a
+}
+
+
+
+
+/*__________-__________-__________-__________-Media Queries-__________-__________-__________-__________*/
+
+/*__________-__________-__________-__________-Media Queries-__________-__________-__________-__________*/
+
+
+
+
+@media (max-width:768px){
+
+    html{
+        font-size: 56%;
+    }
+
+    header #menu{
+        display: block;
+        transition: 0.4s;
+    }
+
+    .fa-times{
+        margin: 0 .8rem 0 .2rem;
+        transform: rotate(180deg);
+        transition: 0.4s;
+    }
+
+    header .navbar{
+        position: absolute;
+        top: -10rem; left:0;
+        width: 100%;
+        background: var(--gradient);
+        display: block;
+        transition: 0.4s;
+        opacity: 0;
+        z-index: -11;
+    }
+
+    header .navbar.nav-toggle{
+        top: 5.9rem;
+        opacity: 1;
+        transition: 0.4s;
+    }
+
+    header .navbar ul{
+        flex-flow: column;
+        padding: 2rem 0;
+    }
+
+    header .navbar ul li{
+        margin: 1.5rem 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    header .navbar ul li a{
+        font-size: 2.5rem;
+        display: block;
+    }
+
+    header .navbar ul li a.active,
+    header .navbar ul li a:hover{
+        color: #0cd8ac;
+    }
+
+    .home h1{
+        font-size: 4rem;
+    }
+
+    .home p{
+        width: auto;
+    }
+
+}
+
+@media (max-width:660px){
+
+    html{
+        font-size: 48%;
+    }
+
+    #login-drop-down-menu.popup{
+        display: block;
+        position: absolute;
+        margin: 10px 0 0 -15px;
+    }
+
+    #login-drop-down-menu.popup li{
+        padding: 1.6rem;
+        border-top: 1px dotted #fff;
+        border-bottom: 0.5px dotted #fff;
+        font-weight: 600;
+        font-size: 145%;
+        color: #fff;
+    }
+
+    #login-drop-down-menu.popup .active{
+        color: #12f38a;
+    }
+
+}
+
+@media (max-width:256px){
+
+    html{
+        font-size: 24%;
+    }
+
+    #login-drop-down-menu.popup{
+        display: block;
+        position: absolute;
+        margin: 10px 0 0 -15px;
+    }
+    
+    #login-drop-down-menu.popup li{
+        padding: 1rem;
+        border-top: 1px dotted #fff;
+        border-bottom: 0.5px dotted #fff;
+        font-weight: 600;
+        font-size: 100%;
+        color: #fff;
+    }
+
+    #login-drop-down-menu.popup{
+        display: block;
+        position: absolute;
+        margin: 10px 0 0 -15px;
+    }
+
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Source Adda |
+        <%= course_title %>
+    </title>
+
+    <link rel="stylesheet" href="/css/course_video_styles.css" type="text/css">
+    <link rel="stylesheet" href="/css/course_page_styles.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <script src="/js/course_video_script.js"></script>
+    <script src="/js/course_page_script.js"></script>
+
+    <header>
+
+        <a href="#" class="logo">Open Source Adda</a>
+
+        <div>
+            <a href="/"><i class="fas fa-home"></i></a>
+            <a href="/account"><i class="fas fa-user-circle"></i></a>
+        </div>
+
+    </header>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <!--__________-__________-__________-__________-Course-__________-__________-__________-__________-->
+
+    <div id="course_container_container" class="box-container-container">
+
+        <!--    --    LEFT BLOCK   --   -->
+        <div id="course_container" class="box-container">
+            <!--    Video Block    -->
+            <div id="video_container" class="box-container">
+                <video id="course_video" src="" autoplay></video>
+                <div id="video-controls" class="video-controls">
+                    <div id="range-bar-container"><div id="range-bar"></div></div>
+                    <div id="left-controls">
+                        <div id="play-pause-btn"><i class="fas fa-play"></i></div>
+                        <div id="time-div">00:00 / 00:00</div>
+                    </div>
+                    <div id="right-controls">
+                        <div id="sound-btn"></i><i class="fas fa-volume-up"></i></div>
+                        <div id="toggle-full-screen"><i class="fas fa-expand"></i></div>
+                    </div>
+                </div>
+            </div>
+            <!--    Title & Description Block    -->
+            <div id="description_container" class="box-container">
+                <p id="title">
+                    <%= course_title %>
+                </p>
+                <p id="description">
+                    <%= course_description %>
+                </p>
+            </div>
+            <!--    Rating Block    -->
+            <div id="rating_container" class="box-container">
+                <p>Rating:</p>
+                <div id="stars">
+                    <% for(let k=1; k <=enrollment_data.rating_given; k++) { %>
+                        <i class="fas fa-star"></i>
+                    <% } %>
+                    <% for(let k=5; k>enrollment_data.rating_given; k--) { %>
+                        <i class="far fa-star"></i>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+
+        <!--    --    RIGHT BLOCK   --   -->
+        <div id="topics_container_container" class="box-container-container">
+
+            <p id="topic_heading">Topics</p>
+
+            <div id="topics_container" class="box-container">
+
+                <% if(course_topics.length > 0) { %>
+
+                    <%# completed_topics_id %> <%# incomplete_topics_id %> <%# course_topics_id %>
+
+                    <!--    3 Cases: { (all)complete, (0)incomplete; (-)complete, (-)incomplete; (0)complete, (all)incomplete    -->
+                    <!--    First Course: { (1st)completed_topics_id; (1st) incomplete_topics_id; (1st)incomplete_topics_id    -->
+                    <!--    First Course: { (1st)course_topics_id; (1st) incomplete_topics_id; (1st)course_topics_id    -->
+
+                    <% let current_topic_id = 0 %>
+
+                    <!--    Getting Incomplete Topics Array      -->
+                    <% const course_topics_id = [] %>
+                    <% course_topics.forEach(course_topic => course_topics_id.push(course_topic.topic_id)) %>
+                    <% const incomplete_topics_id = course_topics_id.filter(e => !completed_topics_id.includes(e)) %>
+
+                    <% if(incomplete_topics_id.length == 0) { %>
+                        <% current_topic_id = completed_topics_id[0] %>
+                    <% } else { %>
+                        <% current_topic_id = incomplete_topics_id[0] %>
+                    <% } %>
+
+                    <!--    Dynamically Rendering      -->
+                    <% course_topics.forEach(course_topic => { %>
+                                                            
+                        <% if(completed_topics_id.includes(course_topic.topic_id)) { %>
+                            <!--    Completed Topics      -->
+                            <% if(current_topic_id == course_topic.topic_id) { %>
+                                <script>fetch_video('<%=course_title%>', '<%=course_topic.topic_id%>')</script>
+                                <div class="topic_container current-topic">
+                                    <i class="video_seen_status_dot fas fa-circle"></i>
+                                    <p onclick="fetch_video('<%=course_title%>', '<%=course_topic.topic_id%>')">
+                                        <%= course_topic.topic_title %>
+                                    </p>
+                                </div>
+                            <% } else { %>
+                                <div class="topic_container">
+                                    <i class="video_seen_status_dot fas fa-circle"></i>
+                                    <p onclick="fetch_video('<%=course_title%>', '<%=course_topic.topic_id%>')">
+                                        <%= course_topic.topic_title %>
+                                    </p>
+                                </div>
+                            <% } %>
+
+                        <% } else { %>
+                            <!--    Incompleted Topics      -->
+                            <% if(current_topic_id == course_topic.topic_id) { %>
+                                <script>fetch_video('<%=course_title%>', '<%=course_topic.topic_id%>')</script>
+                                <div class="topic_container current-topic">
+                                    <i class="video_seen_status_dot far fa-circle"></i>
+                                    <p onclick="fetch_video('<%=course_title%>', '<%=course_topic.topic_id%>')">
+                                        <%= course_topic.topic_title %>
+                                    </p>
+                                </div>
+                            <% } else { %>
+                                <div class="topic_container">
+                                    <i class="video_seen_status_dot far fa-circle"></i>
+                                    <p onclick="fetch_video('<%=course_title%>', '<%=course_topic.topic_id%>')">
+                                        <%= course_topic.topic_title %>
+                                    </p>
+                                </div>
+                            <% } %>
+
+                        <% } %>
+
+                    <%})%>
+
+                <% } else { %>
+                    <div class="topic_container">
+                        <p>We don't have any topics right now! Visit later</p>
+                    </div>
+                <% } %>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--__________-__________-__________-__________-Footer-__________-__________-__________-__________-->
+
+    <%- include('./partials/footer.ejs') %>
+
+</body>
+
+</html>
