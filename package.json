@@ -1,0 +1,19 @@
+{
+  "name": "open-source-adda",
+  "version": "1.0.0",
+  "description": "online learning platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdarshChoutha/open-source-adda.git"
+  },
+  "author": "Adarsh Choutha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AdarshChoutha/open-source-adda/issues"
+  },
+  "homepage": "https://github.com/AdarshChoutha/open-source-adda#readme"
+}

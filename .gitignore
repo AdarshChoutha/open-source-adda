@@ -1,0 +1,43 @@
+# Node modules
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+
+# Database files
+*.sql
+*.sqlite
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# IDE and editor settings
+.vscode/
+.idea/
+
+# Build output
+dist/
+build/
+
+# Dependency directories
+bower_components/
+jspm_packages/
+
+# Optional: if using a specific package manager (e.g., yarn)
+yarn-error.log
+
+# Optional: if using specific tools or features (e.g., Docker)
+docker-compose.override.yml
+Dockerfile*
+
+# Optional: if using specific test setups (e.g., Jest)
+coverage/
+
+# Optional: if using temporary files
+tmp/
+temp/
